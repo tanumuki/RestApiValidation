@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1897" started-at="2018-06-06T08:42:06Z" finished-at="2018-06-06T08:42:08Z">
+  <suite name="Default suite" duration-ms="6376" started-at="2018-06-09T05:32:51Z" finished-at="2018-06-09T05:32:57Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1897" started-at="2018-06-06T08:42:06Z" finished-at="2018-06-06T08:42:08Z">
+    <test name="Default test" duration-ms="6376" started-at="2018-06-09T05:32:51Z" finished-at="2018-06-09T05:32:57Z">
       <class name="testCases.ApiValidation">
-        <test-method status="PASS" signature="getValidation()[pri:0, instance:testCases.ApiValidation@3a82f6ef]" name="getValidation" duration-ms="1871" started-at="2018-06-06T08:42:06Z" finished-at="2018-06-06T08:42:08Z">
+        <test-method status="PASS" signature="startTests()[pri:0, instance:testCases.ApiValidation@5b8dfcc1]" name="startTests" duration-ms="6354" started-at="2018-06-09T05:32:51Z" finished-at="2018-06-09T05:32:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getValidation -->
+        </test-method> <!-- startTests -->
       </class> <!-- testCases.ApiValidation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
