@@ -94,6 +94,7 @@ public class ApiValidation {
 				System.out.println("=======Result for URL:" + url + "===========");
 				for (Map.Entry<String, Integer> entry : map.entrySet()) {
 					System.out.println(entry.getKey() + " : " + entry.getValue());
+					log.info(entry.getKey() + " : " + entry.getValue());
 				}
 				System.out.println("Total number of objects parsed: " + i);
 
