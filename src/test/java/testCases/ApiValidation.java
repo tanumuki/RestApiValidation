@@ -27,12 +27,15 @@ import junit.framework.AssertionFailedError;
 import resources.WebPage;
 
 public class ApiValidation {
-	
-	/*** @author tanumukherjee
-	 * The runner method is validationRunner(). This requests a set of URLs to the getApiValidation method which does the following-
-	 * Connection Management -  HTTP Connection Management API of HttpClient to handle the entire process of managing connections – 
-	 *  from opening and allocating them, through managing their concurrent use by multiple agents, to finally closing them.
-	 * Logging- log4J will collect all the logs
+
+	/***
+	 * @author tanumukherjee The runner method is validationRunner(). This requests
+	 *         a set of URLs to the getApiValidation method which does the
+	 *         following- Connection Management - HTTP Connection Management API of
+	 *         HttpClient to handle the entire process of managing connections –
+	 *         from opening and allocating them, through managing their concurrent
+	 *         use by multiple agents, to finally closing them. Logging- log4J will
+	 *         collect all the logs
 	 */
 
 	public static Logger log = LogManager.getLogger(ApiValidation.class.getName());
@@ -46,13 +49,14 @@ public class ApiValidation {
 	}
 
 	public static void getApiValidation(String url) throws ProcessingException, IOException {
-		
+
 		/***
-		 * Schema Validation-Jackson's serialization and deserialization feature is being used. So if any of the keys get missing, the test case
-		 * will fail citing proper reasons on console and logs
-		 * Schema validation Test cases-
-		 *  # FAIL_ON_MISSING_CREATOR_PROPERTIES - Test will fail if say country goes missing
-		 *  # FAIL_ON_UNKNOWN_PROPERTIES - Test will fail if say some invalid key ("abcd") gets added
+		 * Schema Validation-Jackson's serialization and deserialization feature is
+		 * being used. So if any of the keys get missing, the test case will fail citing
+		 * proper reasons on console and logs Schema validation Test cases- #
+		 * FAIL_ON_MISSING_CREATOR_PROPERTIES - Test will fail if say country goes
+		 * missing # FAIL_ON_UNKNOWN_PROPERTIES - Test will fail if say some invalid key
+		 * ("abcd") gets added
 		 */
 
 		HttpClientConnectionManager poolingConnManager = new PoolingHttpClientConnectionManager();
@@ -77,7 +81,6 @@ public class ApiValidation {
 						WebPage webpage = js.readValueAs(WebPage.class);
 						i++;
 						getValidationResults(webpage, map);
-						// System.out.println(webpage.toString());
 					} catch (Exception e) {
 						log.info("error while parsing webpage object", e);
 						String error = e.getMessage();
@@ -87,7 +90,7 @@ public class ApiValidation {
 					}
 				}
 
-				// printing the map
+				// printing the map and displaying the results on console
 				System.out.println("=======Result for URL:" + url + "===========");
 				for (Map.Entry<String, Integer> entry : map.entrySet()) {
 					System.out.println(entry.getKey() + " : " + entry.getValue());
@@ -103,16 +106,15 @@ public class ApiValidation {
 		}
 	}
 
-
 	public static void getValidationResults(WebPage page, HashMap<String, Integer> map) {
-		
-		
+
 		/***
-		 * Data validation Test Cases - 
-		 * All the responses are parsed using jackson and then the objects are individually validated against the keys.
-		 * Regex has been used for data format and sanity checks. If any of the value doesn't match appropriate regex it will
-		 * be catched into the error counter to display the type of the error it had encountered and its number of occurences
-		 * It also catches the null count for any key and its number of occurences
+		 * Data validation Test Cases - All the responses are parsed using jackson and
+		 * then the objects are individually validated against the keys. Regex has been
+		 * used for data format and sanity checks. If any of the value doesn't match
+		 * appropriate regex it will be catched into the error counter to display the
+		 * type of the error it had encountered and its number of occurences It also
+		 * catches the null count for any key and its number of occurences
 		 */
 
 		// Starting validations
@@ -208,7 +210,7 @@ public class ApiValidation {
 		}
 
 	}
-	
+
 	/*
 	 * errorCounter catches the type of error and its occurences
 	 */
